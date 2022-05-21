@@ -617,14 +617,24 @@ var config = {
 			group: 'Test',
 			title: 'Falta Check_date (nodes)',
 			query: '(node[!check_date][shop]({{bbox}});node[!check_date][amenity]({{bbox}});node[!check_date][office]({{bbox}}););out meta;',
-			iconSrc: imgSrc + 'accessibilitat/wheelchair_unknown.svg',
-			iconStyle: 'background-color:#714601',
-			scale: 0.25,
+			iconSrc: imgSrc + 'base/circle.svg',
+			iconStyle: 'background-color:#ffffff',
 			style: function () {
+				var fill = new ol.style.Fill({
+					color: 'rgba(0,0,0,0.4)'
+				});
+				var stroke = new ol.style.Stroke({
+					color: '#000000',
+					width: 1.25
+				});
 				var style = new ol.style.Style({
-					image: new ol.style.Icon({
-						src: imgSrc + 'accessibilitat/wheelchair_unknown.svg'
-					})
+					image: new ol.style.Circle({
+						fill: fill,
+						stroke: stroke,
+						radius: 5
+					}),
+					fill: fill,
+					stroke: stroke
 				});
 				return style;
 			}
@@ -653,7 +663,7 @@ var config = {
 		{
 			group: 'Test',
 			title: 'Falta survey:date (nodes)',
-			query: '(node[!"survey:date"]({{bbox}});node(w););out;',
+			query: '(nwr[!"survey:date"]({{bbox}});node(w););out;',
 			iconSrc: imgSrc + 'accessibilitat/wheelchair_unknown.svg',
 			iconStyle: 'background-color:#714601',
 			scale: 0.25,
@@ -669,7 +679,7 @@ var config = {
 		{
 			group: 'Test',
 			title: 'Falta survey:date (ways)',
-			query: '(way[!"survey:date"]({{bbox}});node(w););out;',
+			query: '(nwr[!"survey:date"]({{bbox}});node(w););out;',
 			iconSrc: imgSrc + 'base/line.png',
 			iconStyle: 'background-color:#000000',
 			style: function () {
