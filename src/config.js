@@ -618,7 +618,7 @@ var config = {
 			title: 'Falta Check_date (nodes)',
 			query: '(node[!check_date][shop]({{bbox}});node[!check_date][amenity]({{bbox}});node[!check_date][office]({{bbox}}););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
-			iconStyle: 'background-color:#ffffff',
+			iconStyle: 'background-color:#000000',
 			style: function () {
 				var fill = new ol.style.Fill({
 					color: 'rgba(0,0,0,0.4)'
