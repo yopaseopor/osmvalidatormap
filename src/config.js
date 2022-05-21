@@ -663,7 +663,7 @@ var config = {
 						radius: 5
 					}),
 							text: new ol.style.Text({
-								text: name
+								text: name,
 							offsetX : 0,
 								offsetY : 20,
 								fill: new ol.style.Fill({
@@ -699,7 +699,7 @@ var config = {
 						radius: 5
 					}),
 							text: new ol.style.Text({
-								text: name
+								text: name,
 							offsetX : 0,
 								offsetY : 20,
 								fill: new ol.style.Fill({
