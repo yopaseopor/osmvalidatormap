@@ -715,8 +715,8 @@ var config = {
 		},
 		{
 			group: 'Test',
-			title: 'Exact year',
-			query: '(nwr[~"^name:....$"~"."]({{bbox}});node(w););out meta;',
+			title: 'Check_date_Exact year',
+			query: '(nwr[~"^check_date$"~"."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:#0000ff',
 			style: function () {
