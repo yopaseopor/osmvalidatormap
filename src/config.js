@@ -742,7 +742,7 @@ var config = {
 		{
 			group: 'Survey:date',
 			title: 'No Survey:date',
-			query: '(nwr[~!"^survey:date$"~"."]({{bbox}});node(w););out meta;',
+			query: '(nwr[~"!^survey:date$"~"."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:rgba(0,0,0,0.4)',
 			style: function (feature) {
