@@ -615,8 +615,24 @@ var config = {
 		},
 		{
 			group: 'Test',
-			title: 'Vorera sense informació',
-			query: '(way[!wheelchair][highway=footway][footway=sidewalk]({{bbox}});node(w););out;',
+			title: 'Falta Check_date (nodes)',
+			query: '(node[!check_date][shop]({{bbox}});node[!check_date][amenity]({{bbox}});node[!check_date][office]({{bbox}}););out meta;',
+			iconSrc: imgSrc + 'accessibilitat/wheelchair_unknown.svg',
+			iconStyle: 'background-color:#714601',
+			scale: 0.25,
+			style: function () {
+				var style = new ol.style.Style({
+					image: new ol.style.Icon({
+						src: imgSrc + 'accessibilitat/wheelchair_unknown.svg'
+					})
+				});
+				return style;
+			}
+		},
+		{
+			group: 'Test',
+			title: 'Falta Check_date (ways)',
+			query: '(way[!check_date]({{bbox}});node(w););out;',
 			iconSrc: imgSrc + 'base/line.png',
 			iconStyle: 'background-color:#000000',
 			style: function () {
@@ -636,8 +652,8 @@ var config = {
 		},
 		{
 			group: 'Test',
-			title: 'Falta Wheelchair',
-			query: '(node[!wheelchair][highway=crossing]({{bbox}});node(w););out;',
+			title: 'Falta survey:date (nodes)',
+			query: '(node[!"survey:date"]({{bbox}});node(w););out;',
 			iconSrc: imgSrc + 'accessibilitat/wheelchair_unknown.svg',
 			iconStyle: 'background-color:#714601',
 			scale: 0.25,
@@ -652,8 +668,8 @@ var config = {
 		},
 		{
 			group: 'Test',
-			title: 'Via sense informació',
-			query: '(way[!wheelchair][highway]({{bbox}});node(w););out;',
+			title: 'Falta survey:date (ways)',
+			query: '(way[!"survey:date"]({{bbox}});node(w););out;',
 			iconSrc: imgSrc + 'base/line.png',
 			iconStyle: 'background-color:#000000',
 			style: function () {
