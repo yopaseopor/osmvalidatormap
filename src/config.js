@@ -691,7 +691,7 @@ var config = {
 				});
 				var stroke = new ol.style.Stroke({
 					color: '#753f4f',
-					width: 5
+					width: 1
 				});
 				var style = new ol.style.Style({
 					image: new ol.style.Circle({
@@ -701,10 +701,10 @@ var config = {
 					}),
 							text: new ol.style.Text({
 								text: name,
-							offsetX : 0,
+								offsetX : 0,
 								offsetY : 20,
 								fill: new ol.style.Fill({
-                            color: 'rgba(255,255,255,1)'
+                            color: 'rgba(0,0,0,1)'
                         }),
 						}),
 					fill: fill,
