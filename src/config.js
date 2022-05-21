@@ -688,9 +688,9 @@ var config = {
 			}
 		},
 		{
-			group: 'Per date',
-			title: 'Exact year',
-			query: '(nwr[~"^name:....$"~"."]({{bbox}});node(w););out meta;',
+			group: 'Test',
+			title: 'Surveydate_Exact year',
+			query: '(nwr[~"^survey:date$"~"."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:#0000ff',
 			style: function () {
