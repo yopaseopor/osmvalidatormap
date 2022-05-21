@@ -808,6 +808,80 @@ var config = {
 			}
 		},
 		{
+			group: 'Test',
+			title: 'Falta Wheelchair',
+			query: '(node[!wheelchair][shop]({{bbox}});node[!wheelchair][amenity]({{bbox}});node[!wheelchair][office]({{bbox}}););out meta;',
+			iconSrc: imgSrc + 'accessibilitat/wheelchair_unknown.svg',
+			iconStyle: 'background-color:#714601',
+			scale: 0.25,
+			style: function () {
+				var style = new ol.style.Style({
+					image: new ol.style.Icon({
+						src: imgSrc + 'accessibilitat/wheelchair_unknown.svg'
+					})
+				});
+				return style;
+			}
+		},
+		{
+			group: 'Test',
+			title: 'Vorera sense informació',
+			query: '(way[!wheelchair][highway=footway][footway=sidewalk]({{bbox}});node(w););out;',
+			iconSrc: imgSrc + 'base/line.png',
+			iconStyle: 'background-color:#000000',
+			style: function () {
+				var fill = new ol.style.Fill({
+					color: 'rgba(0,0,0,0.2)'
+				});
+				var stroke = new ol.style.Stroke({
+					color: '#000000',
+					width: 5
+				});
+				var style = new ol.style.Style({
+					fill: fill,
+					stroke: stroke
+				});
+				return style;
+			}
+		},
+		{
+			group: 'Test',
+			title: 'Falta Wheelchair',
+			query: '(node[!wheelchair][highway=crossing]({{bbox}});node(w););out;',
+			iconSrc: imgSrc + 'accessibilitat/wheelchair_unknown.svg',
+			iconStyle: 'background-color:#714601',
+			scale: 0.25,
+			style: function () {
+				var style = new ol.style.Style({
+					image: new ol.style.Icon({
+						src: imgSrc + 'accessibilitat/wheelchair_unknown.svg'
+					})
+				});
+				return style;
+			}
+		},
+		{
+			group: 'Test',
+			title: 'Via sense informació',
+			query: '(way[!wheelchair][highway]({{bbox}});node(w););out;',
+			iconSrc: imgSrc + 'base/line.png',
+			iconStyle: 'background-color:#000000',
+			style: function () {
+				var fill = new ol.style.Fill({
+					color: 'rgba(0,0,0,0.2)'
+				});
+				var stroke = new ol.style.Stroke({
+					color: '#000000',
+					width: 5
+				});
+				var style = new ol.style.Style({
+					fill: fill,
+					stroke: stroke
+				});
+				return style;
+			}
+		},
+		{
 			group: 'Per date',
 			title: 'Exact year',
 			query: '(nwr[~"^name:....$"~"."]({{bbox}});node(w););out meta;',
