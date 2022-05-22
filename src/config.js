@@ -1125,12 +1125,12 @@ var config = {
  },
 		{
 			group: 'Test',
-			title: 'Check_date_extended',
-			query: '(nwr[~"^check_date.$"~"."]({{bbox}});node(w););out meta;',
+			title: 'Check_date_extended2',
+			query: '(nwr[~"^check_date:opening_hours$"~"."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:rgba(255,209,124,1)',
 			style: function (feature) {
-				var key_regex = /^check_date.$/
+				var key_regex = /^check_date:opening_hours$/
 				var name_key = feature.getKeys().filter(function(t){return t.match(key_regex)}).pop() || "name"
 				var name = feature.get(name_key) || '';
 				var fill = new ol.style.Fill({
