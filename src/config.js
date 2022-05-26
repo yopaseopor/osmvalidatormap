@@ -311,11 +311,11 @@ var config = {
 		{
 			group: 'Test',
 			title: '2016',
-			query: '(nwr[~"^survey:date.$"~"201[6]."]({{bbox}});node(w););out meta;',
+			query: '(nwr[~"^survey:date.$."~"201[6]."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:rgba(187,92,120,1)',
 			style: function (feature) {
-				var key_regex = /^survey:date.$/
+				var key_regex = /^survey:date.$./
 				var name_key = feature.getKeys().filter(function(t){return t.match(key_regex)}).pop() || "name"
 				var name = feature.get(name_key) || '';
 				var fill = new ol.style.Fill({
