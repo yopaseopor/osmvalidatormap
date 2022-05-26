@@ -311,7 +311,7 @@ var config = {
 		{
 			group: 'Test',
 			title: '2016',
-			query: '(nwr[~"^survey:date.$"~"201[6]."]({{bbox}});node(w););out meta;',
+			query: '(nwr[~"^survey:date.$."~"201[6]."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:rgba(187,92,120,1)',
 			style: function (feature) {
