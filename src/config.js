@@ -718,6 +718,43 @@ var config = {
   },
 		{
 			group: 'Survey:date',
+			title: '2023',
+			query: '(nwr[~"^survey:date$"~"202[3]."]({{bbox}});node(w););out meta;',
+			iconSrc: imgSrc + 'base/circle.svg',
+			iconStyle: 'background-color:rgba(0,0,255,1)',
+			style: function (feature) {
+				var key_regex = /^survey:date$/
+				var name_key = feature.getKeys().filter(function(t){return t.match(key_regex)}).pop() || "name"
+				var name = feature.get(name_key) || '';
+				var fill = new ol.style.Fill({
+					color: 'rgba(0,0,255,0.4)'
+				});
+				var stroke = new ol.style.Stroke({
+					color: 'rgba(0,0,255,1)',
+					width: 1
+				});
+				var style = new ol.style.Style({
+					image: new ol.style.Circle({
+						fill: fill,
+						stroke: stroke,
+						radius: 5
+					}),
+							text: new ol.style.Text({
+								text: name,
+								offsetX : 0,
+								offsetY : 20,
+								fill: new ol.style.Fill({
+                            color: 'rgba(0,0,0,1)'
+                        }),
+						}),
+					fill: fill,
+					stroke: stroke
+				});
+				return style;
+			}
+  },
+		{
+			group: 'Survey:date',
 			title: 'Survey:date < 2020',
 			query: '(nwr[~"^survey:date$"~"202[0-9]."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
@@ -1101,6 +1138,43 @@ var config = {
 				});
 				var stroke = new ol.style.Stroke({
 					color: 'rgba(124,255,245,1)',
+					width: 1
+				});
+				var style = new ol.style.Style({
+					image: new ol.style.Circle({
+						fill: fill,
+						stroke: stroke,
+						radius: 5
+					}),
+							text: new ol.style.Text({
+								text: name,
+								offsetX : 0,
+								offsetY : 20,
+								fill: new ol.style.Fill({
+                            color: 'rgba(0,0,0,1)'
+                        }),
+						}),
+					fill: fill,
+					stroke: stroke
+				});
+				return style;
+			}
+  },
+		{
+			group: 'Check_date',
+			title: '2023',
+			query: '(nwr[~"^check_date$"~"202[3]."]({{bbox}});node(w););out meta;',
+			iconSrc: imgSrc + 'base/circle.svg',
+			iconStyle: 'background-color:rgba(0,0,255,1)',
+			style: function (feature) {
+				var key_regex = /^check_date$/
+				var name_key = feature.getKeys().filter(function(t){return t.match(key_regex)}).pop() || "name"
+				var name = feature.get(name_key) || '';
+				var fill = new ol.style.Fill({
+					color: 'rgba(0,0,255,0.4)'
+				});
+				var stroke = new ol.style.Stroke({
+					color: 'rgba(0,0,255,1)',
 					width: 1
 				});
 				var style = new ol.style.Style({
