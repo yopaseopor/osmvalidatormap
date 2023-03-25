@@ -754,7 +754,7 @@ var config = {
   },
 		{
 			group: 'Survey:date',
-			title: 'Survey:date < 2020',
+			title: '2020 < Survey:date',
 			query: '(nwr[~"^survey:date$"~"202[0-9]."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:rgba(0,255,0,1)',
@@ -1198,7 +1198,7 @@ var config = {
   },
 		{
 			group: 'Check_date',
-			title: 'check_date < 2020',
+			title: '2020 < check_date',
 			query: '(nwr[~"^check_date$"~"202[0-9]."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
 			iconStyle: 'background-color:rgba(0,255,0,1)',
