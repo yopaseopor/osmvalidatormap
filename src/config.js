@@ -16,6 +16,7 @@ var config = {
 	},
 	i18n: {
 		layersLabel: 'Layers',
+		completeWith: 'Complete with:',
 		editWith: 'Edit with:',
 		openWith: 'Open with:',
 		checkTools: 'Validation:',
@@ -1864,6 +1865,11 @@ var vectorLayer = new ol.layer.Vector({
 
 	//Es crida sempre que es fa click sobre el mapa
 	onClickEvent: function(evt, view, coordinateLL) {
+		
+		var complete = $('<div>').html(config.i18n.completeWith);
+		
+		//Mapcomplete survey_date
+		complete.append($('<a>').css('marginLeft', 5).attr({title: 'Validation data', href: 'https://pietervdvn.github.io/mc/legacy/0.27.4/index.html?z=' + view.getZoom() +'&lat='+ coordinateLL[1] +'&lon='+ coordinateLL[0] +'&userlayout=https%3A%2F%2Fraw.githubusercontent.com%2Fyopaseopor%2Fmcquests%2Fmain%2Fwherethestreetshavenonumber.json&language=en#welcome', target: '_blank'}).html($('<img>').attr({src:'https://raw.githubusercontent.com/yopaseopor/mcquests/master/images/icones/mc_checkdate.svg', height: 20, width: 20})));
 
 		var edit = $('<div>').html(config.i18n.editWith);
 		//ID editor
