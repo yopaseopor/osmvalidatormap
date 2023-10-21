@@ -1897,7 +1897,7 @@ var vectorLayer = new ol.layer.Vector({
 		//Geofabrik Tools
 		tool.append($('<a>').css('marginLeft', 5).attr({title: 'Geofabrik Tools', href: 'https://tools.geofabrik.de/osmi/?lon=' + coordinateLL[0] + '&lat=' + coordinateLL[1] + '&zoom=' + Math.min(view.getZoom(), 18) + '&view=tagging', target: '_blank'}).html($('<img>').attr({src: imgSrc + 'geofabrik.png', height: 20, width: 20})));
 
-		return $.merge($.merge(edit, complete,open), tool);
+return $.merge($.merge($.merge(open, tool), complete), edit);
 	},
 
 	//Es crida per cada element trobat al fer click
