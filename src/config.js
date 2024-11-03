@@ -755,6 +755,43 @@ var config = {
   },
 		{
 			group: 'Survey:date',
+			title: '2024',
+			query: '(nwr[~"^survey:date$"~"202[4]."]({{bbox}});node(w););out meta;',
+			iconSrc: imgSrc + 'base/circle.svg',
+			iconStyle: 'background-color:rgba( 187, 46, 204,1)',
+			style: function (feature) {
+				var key_regex = /^survey:date$/
+				var name_key = feature.getKeys().filter(function(t){return t.match(key_regex)}).pop() || "name"
+				var name = feature.get(name_key) || '';
+				var fill = new ol.style.Fill({
+					color: 'rgba( 187, 46, 204,0.4)'
+				});
+				var stroke = new ol.style.Stroke({
+					color: 'rgba( 187, 46, 204,1)',
+					width: 1
+				});
+				var style = new ol.style.Style({
+					image: new ol.style.Circle({
+						fill: fill,
+						stroke: stroke,
+						radius: 5
+					}),
+							text: new ol.style.Text({
+								text: name,
+								offsetX : 0,
+								offsetY : 20,
+								fill: new ol.style.Fill({
+                            color: 'rgba(0,0,0,1)'
+                        }),
+						}),
+					fill: fill,
+					stroke: stroke
+				});
+				return style;
+			}
+  },
+		{
+			group: 'Survey:date',
 			title: '2020 < Survey:date',
 			query: '(nwr[~"^survey:date$"~"202[0-9]."]({{bbox}});node(w););out meta;',
 			iconSrc: imgSrc + 'base/circle.svg',
@@ -1175,6 +1212,43 @@ var config = {
 				});
 				var stroke = new ol.style.Stroke({
 					color: 'rgba(0,0,255,1)',
+					width: 1
+				});
+				var style = new ol.style.Style({
+					image: new ol.style.Circle({
+						fill: fill,
+						stroke: stroke,
+						radius: 5
+					}),
+							text: new ol.style.Text({
+								text: name,
+								offsetX : 0,
+								offsetY : 20,
+								fill: new ol.style.Fill({
+                            color: 'rgba(0,0,0,1)'
+                        }),
+						}),
+					fill: fill,
+					stroke: stroke
+				});
+				return style;
+			}
+  },
+		{
+			group: 'Check_date',
+			title: '2024',
+			query: '(nwr[~"^check_date$"~"202[4]."]({{bbox}});node(w););out meta;',
+			iconSrc: imgSrc + 'base/circle.svg',
+			iconStyle: 'background-color:rgba( 187, 46, 204,1)',
+			style: function (feature) {
+				var key_regex = /^check_date$/
+				var name_key = feature.getKeys().filter(function(t){return t.match(key_regex)}).pop() || "name"
+				var name = feature.get(name_key) || '';
+				var fill = new ol.style.Fill({
+					color: 'rgba( 187, 46, 204,0.4)'
+				});
+				var stroke = new ol.style.Stroke({
+					color: 'rgba( 187, 46, 204,1)',
 					width: 1
 				});
 				var style = new ol.style.Style({
@@ -1871,13 +1945,15 @@ var vectorLayer = new ol.layer.Vector({
 		//Mapcomplete survey_date
 		complete.append($('<a>').css('marginLeft', 5).attr({title: 'Validation data', href: 'https://pietervdvn.github.io/mc/legacy/0.27.4/theme.html?z=' + view.getZoom() +'&lat='+ coordinateLL[1] +'&lon='+ coordinateLL[0] +'&userlayout=https%3A%2F%2Fraw.githubusercontent.com%2Fyopaseopor%2Fmcquests%2Fmain%2Ftestcheckdate.json&language=en#welcome', target: '_blank'}).html($('<img>').attr({src:'https://raw.githubusercontent.com/yopaseopor/mcquests/master/images/icones/mc_checkdate.svg', height: 20, width: 20})));
 
-		var edit = $('<div>').html(config.i18n.editWith);
-		//ID editor
-		edit.append($('<a>').css('marginLeft', 5).attr({title: 'iD', href: 'https://www.openstreetmap.org/edit?editor=id&lon=' + coordinateLL[0] + '&lat=' + coordinateLL[1] + '&zoom=' + view.getZoom(), target: '_blank'}).html($('<img>').attr({src: imgSrc + 'ID.svg', height: 20, width: 20})));
-		//Potlatch 2 editor
-		edit.append($('<a>').css('marginLeft', 5).attr({title: 'Potlatch 2', href: 'https://www.openstreetmap.org/edit?editor=potlatch2&lon=' + coordinateLL[0] + '&lat=' + coordinateLL[1] + '&zoom=' + view.getZoom(), target: '_blank'}).html($('<img>').attr({src: imgSrc + 'potlatch2logobig.png', height: 20, width: 20})));
-		//JOSM editor
-		edit.append($('<a>').css('marginLeft', 5).attr({title: 'JOSM', href: 'https://www.openstreetmap.org/edit?editor=remote&lon=' + coordinateLL[0] + '&lat=' + coordinateLL[1] + '&zoom=' + view.getZoom(), target: '_blank'}).html($('<img>').attr({src: imgSrc + 'JOSM Logotype 2019.svg', height: 20, width: 20})));
+var edit = $('<div>').html(config.i18n.editWith);
+		//@@ID editor
+		edit.append($('<a>').css('marginLeft', 5).attr({title: 'iD', href: 'https://www.openstreetmap.org/edit?editor=id&lon=' + coordinateLL[0] + '&lat=' + coordinateLL[1] + '&zoom=' + view.getZoom(), target: '_blank'}).html($('<img>').attr({src: imgSrc + 'icones_web/ID.svg', height: 20, width: 20})));
+		//Level0 editor
+		edit.append($('<a>').css('marginLeft', 5).attr({title: 'Potlatch 2', href: 'https://level0.osmz.ru/index.php?center=' + coordinateLL[1] + ',' + coordinateLL[0], target: '_blank'}).html($('<img>').attr({src: imgSrc + 'icones_web/L0_logo.png', height: 20, width: 20})));
+		//JOSM, Mercator, Potlach2 (remote control) editor
+		edit.append($('<a>').css('marginLeft', 5).attr({title: 'JOSM', href: 'https://www.openstreetmap.org/edit?editor=remote&lon=' + coordinateLL[0] + '&lat=' + coordinateLL[1] + '&zoom=' + view.getZoom(), target: '_blank'}).html($('<img>').attr({src: imgSrc + 'icones_web/JOSM Logotype 2019.svg', height: 20, width: 20})));
+		//@@RapiD editor
+		edit.append($('<a>').css('marginLeft', 5).attr({title: 'iD', href: 'https://rapideditor.org/edit#background=Bing&datasets=fbRoads,msBuildings&disable_features=boundaries&map=' + view.getZoom() + '/' + coordinateLL[1] + '/' + coordinateLL[0], target: '_blank'}).html($('<img>').attr({src: imgSrc + 'icones_web/rapid_logo.png', height: 20, width: 20})));
 
 		var open = $('<div>').html(config.i18n.openWith);
 		//OSM
